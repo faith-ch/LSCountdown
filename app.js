@@ -24,112 +24,7 @@ async function getivTatCurrentDayTime() {
 
   console.log(curretnivTatTime);
 
-  if (data.day_of_week === 2) {
-    if (
-      new Date(curretnivTatTime).getTime() >
-        new Date("Aug 2, 2022 18:30:00").getTime() &&
-      new Date(curretnivTatTime).getTime() < new Date("Aug 2, 2022 20:00:00")
-    ) {
-      return false;
-    } else {
-      if (
-        new Date(curretnivTatTime).getTime() < new Date("Aug 2, 2022 18:30:00")
-      ) {
-        targetivTatTime = "Aug 2, 2022 18:30:00";
-        ivTatday.innerText = "Вторник 18:30";
-      } else if (
-        new Date(curretnivTatTime).getTime() < new Date("Aug 4, 2022 18:30:00")
-      ) {
-        targetivTatTime = "Aug 4, 2022 18:30:00";
-        ivTatday.innerText = "Четвъртък 18:30";
-      } else if (
-        new Date(curretnivTatTime).getTime() < new Date("Aug 7, 2022 10:00:00")
-      ) {
-        targetivTatTime = "Aug 7, 2022 10:00:00";
-        ivTatday.innerText = "Неделя 10:00";
-      } else {
-        targetivTatTime = "Aug 9, 2022 18:30:00";
-        ivTatday.innerText = "Вторник 18:30";
-      }
-      return {
-        dayivTat: data.day_of_week,
-        timeivTat: set4,
-        curretnivTatTimevar: curretnivTatTime,
-        targetivTatTimevar: targetivTatTime,
-        ivTatF: true,
-      };
-    }
-  } else if (data.day_of_week === 4) {
-    if (
-      new Date(curretnivTatTime).getTime() >
-        new Date("Aug 4, 2022 18:30:00").getTime() &&
-      new Date(curretnivTatTime).getTime() < new Date("Aug 4, 2022 20:00:00")
-    ) {
-      return false;
-    } else {
-      if (
-        new Date(curretnivTatTime).getTime() < new Date("Aug 2, 2022 18:30:00")
-      ) {
-        targetivTatTime = "Aug 2, 2022 18:30:00";
-        ivTatday.innerText = "Вторник 18:30";
-      } else if (
-        new Date(curretnivTatTime).getTime() < new Date("Aug 4, 2022 18:30:00")
-      ) {
-        targetivTatTime = "Aug 4, 2022 18:30:00";
-        ivTatday.innerText = "Четвъртък 18:30";
-      } else if (
-        new Date(curretnivTatTime).getTime() < new Date("Aug 7, 2022 10:00:00")
-      ) {
-        targetivTatTime = "Aug 7, 2022 10:00:00";
-        ivTatday.innerText = "Неделя 10:00";
-      } else {
-        targetivTatTime = "Aug 9, 2022 18:30:00";
-        ivTatday.innerText = "Вторник 18:30";
-      }
-      return {
-        dayivTat: data.day_of_week,
-        timeivTat: set4,
-        curretnivTatTimevar: curretnivTatTime,
-        targetivTatTimevar: targetivTatTime,
-        ivTatF: true,
-      };
-    }
-  } else if (data.day_of_week === 7) {
-    if (
-      new Date(curretnivTatTime).getTime() >
-        new Date("Aug 7, 2022 10:00:00").getTime() &&
-      new Date(curretnivTatTime).getTime() < new Date("Aug 7, 2022 12:00:00")
-    ) {
-      return false;
-    } else {
-      if (
-        new Date(curretnivTatTime).getTime() < new Date("Aug 2, 2022 18:30:00")
-      ) {
-        targetivTatTime = "Aug 2, 2022 18:30:00";
-        ivTatday.innerText = "Вторник 18:30";
-      } else if (
-        new Date(curretnivTatTime).getTime() < new Date("Aug 4, 2022 18:30:00")
-      ) {
-        targetivTatTime = "Aug 4, 2022 18:30:00";
-        ivTatday.innerText = "Четвъртък 18:30";
-      } else if (
-        new Date(curretnivTatTime).getTime() < new Date("Aug 7, 2022 10:00:00")
-      ) {
-        targetivTatTime = "Aug 7, 2022 10:00:00";
-        ivTatday.innerText = "Неделя 10:00";
-      } else {
-        targetivTatTime = "Aug 9, 2022 18:30:00";
-        ivTatday.innerText = "Вторник 18:30";
-      }
-      return {
-        dayivTat: data.day_of_week,
-        timeivTat: set4,
-        curretnivTatTimevar: curretnivTatTime,
-        targetivTatTimevar: targetivTatTime,
-        ivTatF: true,
-      };
-    }
-  } else {
+  function check(){
     if (
       new Date(curretnivTatTime).getTime() < new Date("Aug 2, 2022 18:30:00")
     ) {
@@ -156,6 +51,40 @@ async function getivTatCurrentDayTime() {
       targetivTatTimevar: targetivTatTime,
       ivTatF: true,
     };
+  }
+
+  if (data.day_of_week === 2) {
+    if (
+      new Date(curretnivTatTime).getTime() >
+        new Date("Aug 2, 2022 18:30:00").getTime() &&
+      new Date(curretnivTatTime).getTime() < new Date("Aug 2, 2022 20:00:00")
+    ) {
+      return false;
+    } else {
+      check()
+    }
+  } else if (data.day_of_week === 4) {
+    if (
+      new Date(curretnivTatTime).getTime() >
+        new Date("Aug 4, 2022 18:30:00").getTime() &&
+      new Date(curretnivTatTime).getTime() < new Date("Aug 4, 2022 20:00:00")
+    ) {
+      return false;
+    } else {
+      check()
+    }
+  } else if (data.day_of_week === 7) {
+    if (
+      new Date(curretnivTatTime).getTime() >
+        new Date("Aug 7, 2022 10:00:00").getTime() &&
+      new Date(curretnivTatTime).getTime() < new Date("Aug 7, 2022 12:00:00")
+    ) {
+      return false;
+    } else {
+      check()
+    }
+  } else {
+    check()
   }
 }
 
