@@ -1,4 +1,4 @@
-let timeivTat = document.getElementById("Countdown");
+let time = document.getElementById("Countdown");
 const day = document.getElementById("day");
 let Interval1;
 let Interval2;
@@ -81,7 +81,7 @@ async function getCurrentDayTime() {
 async function optionSwitch() {
   const res = await getCurrentDayTime();
   if (!res) {
-    timeivTat.innerText = "Излъчваме на живо";
+    time.innerText = "Излъчваме на живо";
     setLiveCheckInterval();
   } else {
     getTimeVars(res);
@@ -149,7 +149,7 @@ function setCountdown(...args) {
       S = count[3];
     }
 
-    timeivTat.innerText = `${count[0]}:${H}:${M}:${S}`;
+    time.innerText = `${count[0]}:${H}:${M}:${S}`;
   }, 999);
 }
 
@@ -186,6 +186,6 @@ function setDaysHoursMinutesSeconds() {
   count[3] = 59;
 }
 
-if (timeivTat) {
+if (time) {
   optionSwitch();
 }
