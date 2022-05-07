@@ -1,4 +1,4 @@
-let timeivTat = document.getElementById("Countdown");
+let time = document.getElementById("Countdown");
 const day = document.getElementById("day");
 let Interval1;
 let Interval2;
@@ -43,36 +43,23 @@ async function getCurrentDayTime() {
     };
   }
 
-  if (data.day_of_week === 2) {
-    if (
-      new Date(currentDate).getTime() >
-        new Date("Aug 2, 2022 18:30:00").getTime() &&
-      new Date(currentDate).getTime() < new Date("Aug 2, 2022 20:00:00")
-    ) {
+  if (data.day_of_week === 2 && new Date(currentDate).getTime() >
+  new Date("Aug 2, 2022 18:30:00").getTime() &&
+new Date(currentDate).getTime() < new Date("Aug 2, 2022 20:00:00")) {
+    
       return false;
-    } else {
-      return check()
-    }
-  } else if (data.day_of_week === 4) {
-    if (
-      new Date(currentDate).getTime() >
-        new Date("Aug 4, 2022 18:30:00").getTime() &&
-      new Date(currentDate).getTime() < new Date("Aug 4, 2022 20:00:00")
-    ) {
+   
+  } else if (data.day_of_week === 4 && new Date(currentDate).getTime() >
+  new Date("Aug 4, 2022 18:30:00").getTime() &&
+new Date(currentDate).getTime() < new Date("Aug 4, 2022 20:00:00")) {
+    
       return false;
-    } else {
-      return check()
-    }
-  } else if (data.day_of_week === 7) {
-    if (
-      new Date(currentDate).getTime() >
-        new Date("Aug 7, 2022 10:00:00").getTime() &&
-      new Date(currentDate).getTime() < new Date("Aug 7, 2022 12:00:00")
-    ) {
+    
+  } else if (data.day_of_week === 7 && new Date(currentDate).getTime() >
+  new Date("Aug 7, 2022 10:00:00").getTime() &&
+new Date(currentDate).getTime() < new Date("Aug 7, 2022 12:00:00")) {
       return false;
-    } else {
-      return check()
-    }
+  
   } else {
     return check()
   }
@@ -81,7 +68,7 @@ async function getCurrentDayTime() {
 async function optionSwitch() {
   const res = await getCurrentDayTime();
   if (!res) {
-    timeivTat.innerText = "Излъчваме на живо";
+    time.innerText = "Излъчваме на живо";
     setLiveCheckInterval();
   } else {
     getTimeVars(res);
@@ -149,7 +136,7 @@ function setCountdown(...args) {
       S = count[3];
     }
 
-    timeivTat.innerText = `${count[0]}:${H}:${M}:${S}`;
+    time.innerText = `${count[0]}:${H}:${M}:${S}`;
   }, 999);
 }
 
@@ -186,6 +173,6 @@ function setDaysHoursMinutesSeconds() {
   count[3] = 59;
 }
 
-if (timeivTat) {
+if (time) {
   optionSwitch();
 }
